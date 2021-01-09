@@ -1,1 +1,1 @@
-# Use React and Spring Boot to Build a a social sharing platform app 
+In this project, a social sharing platform has been created with Spring Boot and React
