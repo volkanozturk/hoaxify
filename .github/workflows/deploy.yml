@@ -42,13 +42,15 @@ jobs:
         ssh_private_key: ${{secrets.SSH}}
         local_path: ws/target/ws-0.0.1-SNAPSHOT.jar
         remote_path: /home/volkanozturk6693
-    - name: Remote SSH Commands
-      uses: fifsky/ssh-action@v0.0.4
+    
+    
+    - name: Run SSH command
+      uses: fifsky/ssh-action@master
       with:
         command: |
-          pkill -u volkanozturk6693 'java'
-          nohup java -jar -Djava.security.edg=file:/dev/./urandom ws-0.0.1-SNAPSHOT.jar --spring.profiles.active=production &
+              pkill -u volkanozturk6693 'java'
+              nohup java -jar -Djava.security.edg=file:/dev/./urandom ws-0.0.1-SNAPSHOT.jar --spring.profiles.active=production &: 
         host: ${{secrets.IP}}
         user: ${{secrets.USERNAME}}
-        key: ${{secrets.SSH}}
-   
+        key: ${{ secrets.SSH}}        
+      
